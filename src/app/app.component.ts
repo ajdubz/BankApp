@@ -1,23 +1,34 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { CustomerService } from './services/customer.service';
+import { CommonModule } from '@angular/common';
+import { AccountService } from './services/account.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'BankApp';
   data!: any;
+  data2!: any;
 
-  constructor(private srv: CustomerService) {
+  constructor(private srv: CustomerService, private srvAcct: AccountService) {
     this.srv.getAll().subscribe( x => {
       this.data = x;
     });
+
+    this.srvAcct.getAll().subscribe( x => {
+      this.data2 = x;
+    });
   }
+
+  
+
+
 }
 
 let testData = [

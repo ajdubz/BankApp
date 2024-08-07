@@ -13,11 +13,13 @@ export class CustomerService {
 
   //
   getAll():Observable<any> {
-    let url = "https://localhost:7124/";
+    let url = "https://localhost:7124/Customers";
     return this.http.get(url);
   }
 
-  Create() {
+  Create(): Observable<any> {
+    let url = "https://localhost:7124/Customers";
+    return this.http.post(url, {});
 
   }
 }

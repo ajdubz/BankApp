@@ -1,12 +1,29 @@
+<nav>
+  <a routerLink="/Customers"  >Customers</a>
+  <a routerLink="/Accounts" >Accounts</a>
+</nav>
+
 
 <router-outlet></router-outlet>
 
 <table>
   <tr>
-    <td>Id</td>
+    <td>CustomerId</td>
     <td>Name</td>
   </tr>
   <tr *ngFor="let item of data">
     <td>{{ item.id }}</td>
     <td>{{ item.name }}</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>AccountId</td>
+    <td>Name</td>
+  </tr>
+  <tr *ngFor="let item of data2">
+    <td>{{ item.id }}</td>
+    <td>{{ item.name }}</td>
+  </tr>
 </table>
